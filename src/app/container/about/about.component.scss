@@ -1,0 +1,49 @@
+.about {
+    background-color: #f8f8f8;
+    padding: 60px 0;
+    background: #fff;
+    &__header {
+        display: flex;
+        justify-content: center;
+        &--title {
+            font-size: 36px;
+            font-weight: bold;
+        }
+    }
+    &__description {
+        padding: 30px 0;
+        display: flex;
+        flex-direction: column;
+        &--paragraph {
+            margin: 10px 0;
+            line-height: 20px;
+            text-align: center;
+        }
+        .button {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            &__btn {
+                border: 1px solid #000;
+                background: transparent;
+                font-weight: bold;
+                padding: 15px 30px;
+                border-radius: 4px;
+                transition: all 0.3s;
+                position: absolute;
+                &:hover {
+                    background-color: #0099b7;
+                    color: white;
+                    border: none;
+                    transform: translate(0, -4px);
+                    box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2);
+                }
+            }
+        }
+    }
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+    

@@ -1,0 +1,118 @@
+
+  app-modal {
+  /* modals are hidden by default */
+  display: none;
+}
+  .modal {
+      /* modal container fixed across whole screen */
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      /* z-index must be higher than .modal-background */
+      z-index: 9999999;
+
+      /* enables scrolling for tall modals */
+      overflow: auto;
+      // border: solid 1.5px $_Black_Stone___Textos;
+
+      .modal-body {
+          padding: 50px;
+          background-color: #FFFFFF;
+          box-shadow: 0px 3px 6px #00000029;
+          opacity: 1;
+          .container__modal{
+            a{
+              padding: 50px;
+              color: green;
+            }
+            h1{
+              font-size: 32px;
+              letter-spacing: 0;
+              color: #4C4C4C;
+              opacity: 1;
+              text-align: center;
+            }
+            label{
+              display: inline-block;
+              max-width: 100%;
+              margin-bottom: 5px;
+              letter-spacing: 0;
+              color: #888888;
+              opacity: 1;
+              font-weight: normal;
+              padding-left: 10px;
+            }
+            select{
+              width: 548px;
+              height: 47px;
+              background-color: #FFFFFF 0% 0% no-repeat padding-box;
+              box-shadow: 0px 3px 6px #E9E9E9;
+              border-radius: 4px;
+              opacity: 1;
+            }
+            textarea{
+              width: 548px;
+              height: 167px;
+              background-color: #FFFFFF 0% 0% no-repeat padding-box;
+              box-shadow: 0px 3px 6px #00000029;
+              border-radius: 4px;
+              opacity: 1;
+            }
+            .modal-dropdown,
+            .modal-text-area{
+              margin: 50px 0;
+            }
+            .modal-btns{
+              text-align: center;
+            }
+          }
+
+          /* margin exposes part of the modal background */
+          // margin: 40px;
+          max-width: 700px;
+
+          @media screen and (max-width: 600px){
+            margin: 20% 5%;
+            padding: 10px;
+          }
+
+      }
+  }
+
+  .modal-background {
+      /* modal background fixed across whole screen */
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      /* semi-transparent black  */
+      background-color: #FFF;
+      opacity: 0.75;
+
+      /* z-index must be below .modal and above everything else  */
+      z-index: 999999;
+  }
+
+
+body.modal-open {
+  /* body overflow is hidden to hide main scrollbar when modal window is open */
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .modal-body{
+    max-width: 100% !important;
+    select,
+    textarea{
+      max-width: 100%;
+    }
+  }
+}

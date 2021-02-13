@@ -1,0 +1,43 @@
+<section>
+    <div class="search-pokemon">
+        <input type="text" [(ngModel)]="searchText">
+        <img src="/assets/img/icon-search.svg" alt="icon-search.svg">
+    </div>
+    <div class="select-pokemon">
+        <select name="cars" id="cars" (change)="onChange($event.target.value)">
+            <option value="">All</option>
+            <option *ngFor="let abilityPokemon of listAbilityPokemon" value={{abilityPokemon.url}}>
+                {{abilityPokemon.name }}
+            </option>
+        </select>
+    </div>
+</section>
+<section class="container-cards">
+    <ng-container *ngFor="let pokemon of listPokemon | gridFilter : searchText : false">
+        <div class="cards" (click)="detailPokenon(pokemon.name)">
+            <img src="/assets/img/pokemon.jpg">
+            <p>{{pokemon.name | camelcase}}</p>
+        </div>
+    </ng-container>
+</section>
+<section>
+    <a [routerLink]="['/sobre']"><h3>Saiba mais</h3></a>
+</section>
+
+<app-modal [id]="'detail-pokemon'" [title]="'Informação'" [imgHeaderModal]="'../../../../../../../assets/images/alert.svg'" [modalDialog]="'lg'" [customHeader]="true">
+    <div class="modal-body">
+        <div class="card-detail">
+            <img src="/assets/img/pokemon.jpg">
+            <p><b>Nome: </b> {{listDetailPokemon?.name}}</p>
+            <p><b>Peso: </b>{{listDetailPokemon?.weight}}</p>
+            <p><b>Altura </b>{{listDetailPokemon?.height}}</p>
+            <p><b>Habilidades</b></p>
+            <ul *ngFor="let ability of abilities">
+                <li>{{ability?.name}}</li>
+            </ul>
+        </div>
+    </div>
+</app-modal>
+
+
+<app-loader *ngIf="loader"></app-loader>
